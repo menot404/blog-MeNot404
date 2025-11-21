@@ -1,38 +1,35 @@
 const express = require('express');
+const connectDB = require('./server/data/configDB');
+const router = require('./server/routes/indexRouter');
 
 const app = express();
 const PORT = 3000;
-const localhost = 'localhost'
+const localhost = 'http://localhost:'
 const host =  'http://localhost:3000/'
 
 // Middleware to serve static files
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
 // register view engine
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
 
 // listen for requests
-app.listen(PORT, localhost, ()=>{
-    console.log(`Server is running on port ${PORT}\nAccess it at: ${host}`);
-})
+connectDB
+    .then(() => {
+        app.listen(PORT, () => {
+        console.log(`🚀 Serveur démarré sur ${localhost}${PORT}`);
+        console.log(`📝 Accédez à l'app: ${localhost}${PORT}/api/v1/blogs`);
+    });
+    })
+    .catch((err) => {
+    console.error(`❌ Erreur MongoDB: ${err}`);
+    process.exit(1);
+    });
 
-app.get('/', (req, res)=>{
-    res.render('index', {title: 'Home'});
-})
-
-app.get('/about', (req, res)=>{
-    res.render('about', {title: 'About'});
-})
-
-app.get('/blogs/create', (req, res)=>{
-    res.render('create', {title: 'Create a new Blog'});
-})
-
-// Redirect from /about-me to /about
-app.get('/about-us', (req, res)=>{
-    res.redirect(301, '/about');
-})
+// Use index router for handling routes
+app.use('/api/v1', router);
 
 // 404 page
 app.use((req, res)=>{
