@@ -17,7 +17,7 @@ const getBlogById = async (req, res) => {
         
         const blog = await Blog.findById(blogId);
         if (blog) {
-            res.render('details', { title: blog.title, blog });
+            res.render('blogDetail', { title: blog.title, blog });
         } else {
             res.status(404).send('Blog not found');
         }
