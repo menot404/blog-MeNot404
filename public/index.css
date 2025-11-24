@@ -57,6 +57,31 @@
     }
 
     /* index styles */
+    .blogs .blog{
+        margin: 2rem 0;
+        padding: 1.5rem 0 1.5rem 2rem;
+        border-left: .3rem solid blue;
+        border-bottom-left-radius: .5rem;
+        border-top-left-radius: .5rem;
+    }
+
+    .blogs .blog:hover h3{
+        color: blue;
+    }
+
+    .blogs .blog:hover{
+        transform: translateX(3px);
+        transition: all ease .4s;
+    }
+
+    .blogs a{
+        font-size: .8rem;
+        color: blue;
+    }
+    .blogs a:hover{
+        letter-spacing: .5px;
+        transition: all ease .3s;
+    }
 
     /* details styles */
 
