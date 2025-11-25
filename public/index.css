@@ -44,7 +44,9 @@
         margin: 80px auto 20px;
     }
     h2{
-        margin-bottom: 40px;
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 2rem;
     }
     h3{
         text-transform: capitalize;
@@ -55,8 +57,57 @@
     }
 
     /* index styles */
+    .blogs .blog{
+        margin: 2rem 0;
+        padding: 1.5rem 0 1.5rem 2rem;
+        border-left: .3rem solid blue;
+        border-bottom-left-radius: .5rem;
+        border-top-left-radius: .5rem;
+    }
+
+    .blogs .blog:hover h3{
+        color: blue;
+    }
+
+    .blogs .blog:hover{
+        transform: translateX(3px);
+        transition: all ease .4s;
+    }
+
+    .blogs a{
+        font-size: .8rem;
+        color: blue;
+    }
+    .blogs a:hover{
+        letter-spacing: .5px;
+        transition: all ease .3s;
+    }
 
     /* details styles */
+
+    .contents{
+        padding: 4rem;
+        background-color: rgb(146, 146, 146, .1);
+        border: .1rem solid rgb(146, 146, 146, .3);
+        border-radius: .5rem;
+    }
+    .blog-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    .blog-detail h4{
+        color: #777;
+        font-size: 1.5rem;
+    }
+
+    .blog-detail img{
+        width: 70%;
+        height: 20%;
+        border-radius: .2rem ;
+        overflow: hidden;
+    }
 
     /* create styles */
     .create-blog form{
