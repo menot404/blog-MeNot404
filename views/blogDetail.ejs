@@ -8,7 +8,21 @@
         <div class=" blog-detail">
             <h3> <%= blog.title %> </h3>
             <div>
-                <img src="/img/errjava.png" alt="">
+                <% if(blog.media && blog.media.data){ %>
+                    <% if(blog.media.contentType.startsWith('image')) { %>
+                        <img src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>" alt="Blog Media" class="blog-media"/>
+                    <% } else if(blog.media.contentType.startsWith('video')) { %>
+                        <video controls class="blog-media" width="300">
+                            <source src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>" type="<%= blog.media.contentType %>">
+                        </video>
+                    <% }else { %>
+                        <p>No media available for this blog.</p>
+                    <% } %>
+                <% } else { %>
+                    <p>No media available for this blog.</p>
+                <% } %>
+            </div>
+            <div class="blog-content">
                 <h4> <%= blog.snippet %> </h4>
                 <p> <%= blog.body %> </p>
             </div>
