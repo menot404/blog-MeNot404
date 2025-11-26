@@ -16,4 +16,7 @@ router.get("/:id", blogController.getBlogById);
 // apply multer to the POST handler so form multipart data (including file) is parsed
 router.post("/", upload.single("media"), blogController.createBlog);
 
+// Route to delete a blog by ID
+router.post("/:id/delete", blogController.deleteBlogById);
+
 module.exports = router;

@@ -13,7 +13,31 @@
                     <h3><%= blog.title %></h3>
                     <p><%= blog.snippet %></p>
                     <a href="/api/v1/blogs/<%= blog._id %>">Read More -></a>
+                    <div class="forms">
+
+                    <form 
+                    method="POST"
+                        action=""
+                    >
+                        <a 
+                            href=""
+                            title="Update"
+                        
+                        >
+                            Update
+                        </a>
+                    </form>
+                    <form
+                        method="POST"
+                        action="/api/v1/blogs/<%= blog._id %>/delete"
+                        title="Delete"
+                    
+                    >
+                        <button type="submit">Delete</button>
+                    </form>
+                    </div>
                 </div>
+                
             <% }) %>
         <% } else { %>
             <p>No blogs available.</p>

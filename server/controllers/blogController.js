@@ -48,8 +48,21 @@ const createBlog = async (req, res) => {
   }
 };
 
+// Delete a blog by ID 
+const deleteBlogById = async (req, res)=>{
+  const blogId = req.params.id;
+  try {
+    const blog = await Blog.findByIdAndDelete(blogId);
+    res.redirect(301, "/api/v1/blogs")
+  } catch (error) {
+    res.status(500).send("Error deleting blog");
+    console.error("deleteBlogById error:", error)
+  }
+}
+
 module.exports = {
   getAllBlogs,
   getBlogById,
   createBlog,
+  deleteBlogById
 };
