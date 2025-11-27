@@ -167,3 +167,15 @@
         font-size: 1.2em;
         cursor: pointer;
     }
+
+    /*Style not found*/
+
+    .not-found img{
+        width: 100%;
+        position: relative;
+    }
+
+    .not-found-itm{
+        position: absolute;
+        top: 20rem;
+    }
