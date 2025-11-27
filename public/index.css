@@ -104,7 +104,8 @@
 
     .blog-detail img{
         width: 70%;
-        height: 20%;
+        height: auto; /* keep correct aspect ratio */
+        max-height: 400px;
         border-radius: .2rem ;
         overflow: hidden;
     }
