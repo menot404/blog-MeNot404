@@ -48,21 +48,49 @@ const createBlog = async (req, res) => {
   }
 };
 
-// Delete a blog by ID 
-const deleteBlogById = async (req, res)=>{
+// Delete a blog by ID
+const deleteBlogById = async (req, res) => {
   const blogId = req.params.id;
   try {
-    const blog = await Blog.findByIdAndDelete(blogId);
-    res.redirect(301, "/api/v1/blogs")
+    await Blog.findByIdAndDelete(blogId);
+    res.redirect(301, "/api/v1/blogs");
   } catch (error) {
     res.status(500).send("Error deleting blog");
-    console.error("deleteBlogById error:", error)
+    console.error("deleteBlogById error:", error);
   }
-}
+};
+
+// UPDATE - Edit a blog
+
+const updateOnBlog = async (req, res) => {
+  const blogId = req.params.id;
+  try {
+    // Build updates object; only overwrite media when a new file was uploaded
+    const updates = {
+      title: req.body.title,
+      snippet: req.body.snippet,
+      body: req.body.body,
+    };
+
+    if (req.file) {
+      updates.media = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      };
+    }
+
+    await Blog.findByIdAndUpdate(blogId, updates);
+    res.redirect("/api/v1/blogs");
+  } catch (error) {
+    res.status(500).send("Error then update blog");
+    console.error(error);
+  }
+};
 
 module.exports = {
   getAllBlogs,
   getBlogById,
   createBlog,
-  deleteBlogById
+  deleteBlogById,
+  updateOnBlog,
 };
