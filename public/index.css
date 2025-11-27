@@ -63,6 +63,14 @@
         border-left: .3rem solid blue;
         border-bottom-left-radius: .5rem;
         border-top-left-radius: .5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .blog-btns{
+        display: flex;
+        gap: 1rem;
     }
 
     .blogs .blog:hover h3{
@@ -81,6 +89,26 @@
     .blogs a:hover{
         letter-spacing: .5px;
         transition: all ease .3s;
+    }
+
+    .btn,
+    .blog-btns a
+    {
+        padding: .5rem 1rem;
+        border-radius: .5rem ;
+        font-size: 1rem;
+        cursor: pointer;
+        color: white;
+        border: none;
+    }
+
+    .blog-btns a{
+        background-color: rgb(0, 156, 0, .8);
+        border: .1rem solid green;
+    }
+    .btn{
+        background-color: rgb(255, 0, 0, .8);
+        border: .1rem solid rgb(167, 0, 0);
     }
 
     /* details styles */
@@ -131,10 +159,23 @@
     }
     .create-blog button{
         margin-top: 20px;
-        background: crimson;
+        background: rgb(0, 0, 255, .8);
         color: white;
         padding: 6px;
-        border: 0;
+        border-radius: .5rem;
+        border: .1rem solid blue;
         font-size: 1.2em;
         cursor: pointer;
+    }
+
+    /*Style not found*/
+
+    .not-found img{
+        width: 100%;
+        position: relative;
+    }
+
+    .not-found-itm{
+        position: absolute;
+        top: 20rem;
     }
