@@ -31,12 +31,43 @@
         list-style-type: none;
         margin-left: 20px;
     }
+    nav a{
+        position: relative;
+    }
+    nav a::before {
+        content: "";
+        width: 0;
+        position: absolute;
+        height: 2px;
+        transition: all .3s ease;
+        top: -4px;left: -4px;
+        
+    }
+
+    nav a::after {
+        content: "";
+        width: 0;
+        position: absolute;
+        height: 2px;
+        transition: all .3s ease;
+        bottom: -4px;right: -4px;
+        
+    }
+
+    nav a:hover::before,
+    nav a:hover::after
+    {
+        background-color: blue;
+        width: 75%;
+    }
+
+
     nav h1{
     font-size: 3em;
     }
     nav p, nav a{
         color: #777;
-        font-weight: 300;
+        font-weight: 500;
     }
     footer{
         color: #777;
