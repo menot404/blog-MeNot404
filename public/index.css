@@ -264,13 +264,6 @@
         box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
-    .create-blog button:hover{
-        background-color: rgb(2, 2, 131);
-        border: .1rem solid rgb(0, 0, 255, .8);
-        color: white;
-        transition: .3s;
-    }
-
     /*Style not found*/
 
     .not-found img{
