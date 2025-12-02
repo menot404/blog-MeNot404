@@ -211,6 +211,24 @@
         overflow: hidden;
     }
 
+    /* Support video rendering in detail and list views */
+    .blog-detail video{
+        width: 70%;
+        max-height: 400px;
+        border-radius: .2rem;
+        overflow: hidden;
+    }
+
+    /* Small media preview used in index list */
+    .blog-media img,
+    .blog-media video{
+        width: 200px;
+        height: auto;
+        max-height: 200px;
+        border-radius: .2rem;
+        object-fit: cover;
+    }
+
     /* create styles */
     .container {
             background: white;
@@ -327,6 +345,17 @@
             object-fit: cover;
             border-radius: 8px;
             border: 2px solid #e0e0e0;
+        }
+
+        /* Constrain video preview size so it doesn't overflow the form */
+        .file-preview video,
+        .preview-video {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            background: black;
         }
 
         .file-info {

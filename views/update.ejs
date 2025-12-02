@@ -1,44 +1,96 @@
 <html lang="en">
-<!-- Head-->
-<%- include('partials/head') %>
-<body>
+  <!-- Head-->
+  <%- include('partials/head') %>
+  <body>
     <!-- Header -->
     <%- include('partials/header') %>
 
-    <div class="content create-blog">
-        <h2>Update a Blog</h2>
-        <form action="/api/v1/blogs/<%= blog._id %>" method="POST" enctype="multipart/form-data">
-            <label for="title">Blog Title:</label>
-            <input type="text" id="title" name="title" value="<%= blog.title %>" required>
+    <div class="content create-blog container">
+      <h2>Update a Blog</h2>
+      <form
+        action="/api/v1/blogs/<%= blog._id %>"
+        method="POST"
+        enctype="multipart/form-data"
+        id="blogform"
+      >
+        <div class="form-group">
+          <label for="title">Blog Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="<%= blog.title %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="snippet">Blog Snippet:</label>
+          <input
+            type="text"
+            id="snippet"
+            name="snippet"
+            value="<%= blog.snippet %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="body">Blog Body:</label>
+          <textarea id="body" name="body" required><%= blog.body %></textarea>
+        </div>
 
-            <label for="snippet">Blog Snippet:</label>
-            <input type="text" id="snippet" name="snippet" value="<%= blog.snippet %>" required>
+        <div class="form-group">
+          <label> Blog Media (laissez vide pour conserver l'actuel):</label>
+          <div class="file-input-wrapper">
+            <input
+              type="file"
+              name="media"
+              id="media"
+              accept="image/*, video/*"
+            />
+            <label for="media" class="file-input-label"
+              >Choisir un fichier (image / vidéo)</label
+            >
+          </div>
 
-            <label for="body">Blog Body:</label>
-            <textarea id="body" name="body" required><%= blog.body %></textarea>
+          <div class="file-preview" id="filePreview">
+            <div id="imagePreview"></div>
+            <div class="file-info">
+              <div class="file-name" id="fileName"></div>
+              <div class="file-size" id="fileSize"></div>
+            </div>
+            <button type="button" class="remove-file" id="removeFile">✕</button>
+          </div>
 
-            <label for="photo"> Blog Photo (keep empty to keep current):</label>
-            <input type="file" name="media" id="media" accept="image/*, video/*">
-
-            <% if (blog.media && blog.media.data) { %>
-                <div class="current-media-preview">
-                    <p>Current media preview:</p>
-                    <% if (blog.media.contentType.startsWith('image')) { %>
-                        <img src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>" alt="Current media" style="max-width:300px; display:block; margin:8px auto;" />
-                    <% } else if (blog.media.contentType.startsWith('video')) { %>
-                        <video controls width="300" style="display:block; margin:8px auto;">
-                            <source src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>" type="<%= blog.media.contentType %>">
-                        </video>
-                    <% } %>
-                </div>
+          <% if (blog.media && blog.media.data) { %>
+          <div class="current-media-preview" style="margin-top: 12px">
+            <p>Media actuel :</p>
+            <% if (blog.media.contentType.startsWith('image')) { %>
+            <img
+              src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>"
+              alt="Current media"
+              style="max-width: 300px; display: block; margin: 8px auto"
+            />
+            <% } else if (blog.media.contentType.startsWith('video')) { %>
+            <video
+              controls
+              width="300"
+              style="display: block; margin: 8px auto"
+            >
+              <source
+                src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>"
+                type="<%= blog.media.contentType %>"
+              />
+            </video>
             <% } %>
+          </div>
+          <% } %>
+        </div>
 
-            <button type="submit">Update Blog</button>
-        </form>
+        <button type="submit" class="submit-btn">Update Blog</button>
+      </form>
     </div>
 
     <!-- Footer -->
     <%- include('partials/footer') %>
-
-</body>
+  </body>
 </html>
