@@ -8,6 +8,7 @@
         <div class=" blog-detail">
             <h3> <%= blog.title %> </h3>
             <div>
+<<<<<<< HEAD
                 <% if(blog.media && blog.media.data){ %>
                     <% if(blog.media.contentType.startsWith('image')) { %>
                         <img src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>" alt="Blog Media" class="blog-media"/>
@@ -23,6 +24,9 @@
                 <% } %>
             </div>
             <div class="blog-content">
+=======
+                <img src="/img/errjava.png" alt="">
+>>>>>>> main
                 <h4> <%= blog.snippet %> </h4>
                 <p> <%= blog.body %> </p>
             </div>

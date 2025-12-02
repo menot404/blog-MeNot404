@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 const Blog = require("../models/blogModel")
+=======
+
+>>>>>>> main
 // Create - Show create form
 const  showForm = async(req, res)=>{
     res.render('create', {title: 'Create a new Blog'});
 }
+<<<<<<< HEAD
 
 // UPDATE - Show update form
 const showFormUpdate = async(req, res)=>{
@@ -21,4 +26,8 @@ const showFormUpdate = async(req, res)=>{
 module.exports = {
     showForm,
     showFormUpdate,
+=======
+module.exports = {
+    showForm
+>>>>>>> main
 }

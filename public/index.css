@@ -136,6 +136,7 @@
         border-left: .3rem solid blue;
         border-bottom-left-radius: .5rem;
         border-top-left-radius: .5rem;
+<<<<<<< HEAD
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -144,6 +145,8 @@
     .blog-btns{
         display: flex;
         gap: 1rem;
+=======
+>>>>>>> main
     }
 
     .blogs .blog:hover h3{
@@ -163,6 +166,7 @@
         letter-spacing: .5px;
         transition: all ease .3s;
     }
+<<<<<<< HEAD
 
     .btn,
     .blog-btns a
@@ -183,6 +187,8 @@
         background-color: rgb(255, 0, 0, .8);
         border: .1rem solid rgb(167, 0, 0);
     }
+=======
+>>>>>>> main
 
     /* details styles */
 
@@ -205,8 +211,12 @@
 
     .blog-detail img{
         width: 70%;
+<<<<<<< HEAD
         height: auto; /* keep correct aspect ratio */
         max-height: 400px;
+=======
+        height: 20%;
+>>>>>>> main
         border-radius: .2rem ;
         overflow: hidden;
     }
