@@ -4,7 +4,21 @@ const blogController = require("../controllers/blogController");
 const multer = require("multer");
 
 // store in memory so controller can access file.buffer
-const upload = multer({ storage: multer.memoryStorage() });
+// Add limits and a simple fileFilter to prevent huge uploads and unsupported types
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 20 * 1024 * 1024 }, // 20 MB max
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype.startsWith("image/") ||
+      file.mimetype.startsWith("video/")
+    ) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only image and video files are allowed"));
+    }
+  },
+});
 
 // Route to get all blogs
 router.get("/", blogController.getAllBlogs);

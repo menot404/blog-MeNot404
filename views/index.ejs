@@ -1,53 +1,66 @@
 <html lang="en">
-<!-- Head-->
-<%- include('partials/head') %>
-<body>
+  <!-- Head-->
+  <%- include('partials/head') %>
+  <body>
     <!-- Header -->
     <%- include('partials/header') %>
 
     <div class="blogs content">
-        <h2>All Blogs</h2>
-        <%if (blogs.length > 0) { %>
-            <% blogs.forEach(blog => { %>
-                <div class="blog">
-                    <div class="blog-item">
-                        <h3><%= blog.title %></h3>
-                        <p><%= blog.snippet %></p>
-                        <a href="/api/v1/blogs/<%= blog._id %>" title="Read More" >Read More -></a>
-                    </div>
-                    <div class="blog-btns">
+      <h2>All Blogs</h2>
+      <%if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+      <div class="blog">
+        <div class="blog-item">
+          <h3><%= blog.title %></h3>
+          <p><%= blog.snippet %></p>
+          <a href="/api/v1/blogs/<%= blog._id %>" title="Read More"
+            >Read More -></a
+          >
+        </div>
+        <div class="blog-media">
+          <% if (blog.media && blog.media.data) { %> <% if
+          (blog.media.contentType &&
+          blog.media.contentType.startsWith('image/')) { %>
+          <img
+            src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>"
+            alt="<%= blog.title %>"
+          />
+          <% } else if (blog.media.contentType &&
+          blog.media.contentType.startsWith('video/')) { %>
+          <video controls width="200">
+            <source
+              src="data:<%= blog.media.contentType %>;base64,<%= blog.media.data.toString('base64') %>"
+              type="<%= blog.media.contentType %>"
+            />
+            Your browser does not support the video tag.
+          </video>
+          <% } %> <% } %>
+        </div>
+        <div class="blog-btns">
+          <form method="POST" action="">
+            <a
+              href="/api/v1/blogs/update/<%= blog._id %>"
+              title="Update"
+              class="btn"
+            >
+              Update
+            </a>
+          </form>
+          <form
+            method="POST"
+            action="/api/v1/blogs/<%= blog._id %>/delete"
+            title="Delete"
+          >
+            <button type="submit" class="btn">Delete</button>
+          </form>
+        </div>
+      </div>
 
-                    <form 
-                    method="POST"
-                        action=""
-                    >
-                        <a
-                            href="/api/v1/blogs/update/<%= blog._id %>"
-                            title="Update"
-                            class="btn"
-                        
-                        >
-                            Update
-                        </a>
-                    </form>
-                    <form
-                        method="POST"
-                        action="/api/v1/blogs/<%= blog._id %>/delete"
-                        title="Delete"
-                    
-                    >
-                        <button type="submit" class="btn">Delete</button>
-                    </form>
-                    </div>
-                </div>
-                
-            <% }) %>
-        <% } else { %>
-            <p>No blogs available.</p>
-        <% } %>
+      <% }) %> <% } else { %>
+      <p>No blogs available.</p>
+      <% } %>
     </div>
 
     <!-- Footer -->
     <%- include('partials/footer') %>
-</body>
+  </body>
 </html>
