@@ -10,6 +10,7 @@
         <%if (blogs.length > 0) { %>
             <% blogs.forEach(blog => { %>
                 <div class="blog">
+<<<<<<< HEAD
                     <div class="blog-item">
                         <h3><%= blog.title %></h3>
                         <p><%= blog.snippet %></p>
@@ -41,6 +42,12 @@
                     </div>
                 </div>
                 
+=======
+                    <h3><%= blog.title %></h3>
+                    <p><%= blog.snippet %></p>
+                    <a href="/api/v1/blogs/<%= blog._id %>">Read More -></a>
+                </div>
+>>>>>>> main
             <% }) %>
         <% } else { %>
             <p>No blogs available.</p>
