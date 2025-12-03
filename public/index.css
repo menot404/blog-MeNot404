@@ -464,7 +464,7 @@
         position: fixed;
         background-color: white;
         right: -1000;top: 6rem;
-        width: 50%;max-width: 50vh;
+        width: 25%;max-width: 25vh;
         box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
         transition: right .5s ease;
         z-index: 1001;
