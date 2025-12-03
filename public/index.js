@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const mobilNavToggle = document.querySelector(
-    "body > header > div.mobil > button"
-  );
+  const mobilNavToggle = document.querySelector("body > header > div.mobil > button");
   const mainNav = document.querySelector("body > header > nav");
   const functionNavToggle = () => {
     mainNav.classList.toggle("nav-open");
