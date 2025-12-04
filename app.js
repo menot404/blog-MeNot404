@@ -33,5 +33,5 @@ app.use('/api/v1', router);
 
 // 404 page
 app.use((req, res)=>{
-    res.status(404).render('404', {title: '404'});
+    res.status(404).render('404', {url: req.originalUrl, title: 'PageNotFound-404'});
 })
