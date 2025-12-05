@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const fileSize = document.getElementById("fileSize");
   const removeFileBtn = document.getElementById("removeFile");
 
-  fileInput.addEventListener("change", function (e) {
+  if (fileInput) {
+    fileInput.addEventListener("change", function (e) {
     const file = e.target.files[0];
 
     if (file) {
@@ -58,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fileName.textContent = "";
     fileSize.textContent = "";
   });
+
+  }
 
   // Fix: correct form id is 'blogform' in create.ej
   const blogForm = document.getElementById("blogform");
