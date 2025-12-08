@@ -7,6 +7,11 @@
 
     <div class="blogs content">
       <h2>All Blogs</h2>
+      <div class="filter">
+          <form action="">
+            <input type="text" name="search" id="search" placeholder="Search by title...">
+          </form>
+      </div>
       <%if (blogs.length > 0) { %> <% blogs.forEach(blog => { %>
       <div class="blog">
         <div class="blog-item">
@@ -55,7 +60,12 @@
         </div>
       </div>
 
-      <% }) %> <% } else { %>
+      <% }) %>
+      
+        <div id="no-results">
+          No résult found.
+        </div>
+      <% } else { %>
       <p>No blogs available.</p>
       <% } %>
     </div>
