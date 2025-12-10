@@ -1,7 +1,7 @@
 const Blog = require("../models/blogModel")
 // Create - Show create form
 const  showForm = async(req, res)=>{
-    res.render('create', {title: 'Create a new Blog'});
+    res.render('pages/create', {title: 'Create a new Blog'});
 }
 
 // UPDATE - Show update form
@@ -12,7 +12,7 @@ const showFormUpdate = async(req, res)=>{
         if (!blog) {
             res.status(404).send("Blog Not Found");
         }
-        res.render("update", {blog, title: "Edit Blog"})
+        res.render("pages/update", {blog, title: "Edit Blog"})
     } catch (error) {
         res.status(500).send('Error retrieving blog for update');
     }

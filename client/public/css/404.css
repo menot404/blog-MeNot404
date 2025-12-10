@@ -1,0 +1,45 @@
+ .not-found{
+        position: relative;
+    }
+    .not-found img{
+        position: relative;
+    }
+
+    .error-message{
+        position: absolute;
+        top:5rem;
+        font-size: 18px;
+        color: #222;
+        width: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+  .error-url {
+    color: #999;
+    word-break: break-all;
+    margin: 20px 0;
+  }
+
+  .error-url code {
+    background: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: rgb(245, 62, 62);
+  }
+
+  .error-actions {
+    margin-top: 30px;
+  }
+
+  .error-actions a{
+    background-color: rgb(68, 68, 250);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    border: 2px solid blue;
+  }

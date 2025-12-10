@@ -4,7 +4,7 @@ const Blog = require("../models/blogModel");
 const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find().sort({ createdAt: -1 });
-    res.render("index", { title: "All Blogs", blogs });
+    res.render("pages/home", { title: "All Blogs", blogs });
   } catch (error) {
     res.status(500).send("Error retrieving blogs");
   }
@@ -16,7 +16,7 @@ const getBlogById = async (req, res) => {
   try {
     const blog = await Blog.findById(blogId);
     if (blog) {
-      res.render("blogDetail", { title: blog.title, blog });
+      res.render("pages/blogDetail", { title: blog.title, blog });
     } else {
       res.status(404).send("Blog not found");
     }
