@@ -109,36 +109,32 @@ nav a {
 
 
 @media screen and (max-width: 967px) {
-    header {
+        header{
         border: none;
         background: linear-gradient(to top, transparent, #e7e7e7);
     }
-
-    .set-title {
+    .set-title{
         background-color: #8b8b8b;
         border-radius: .5rem;
         border: .1rem solid #585858;
         padding: 1rem;
     }
-
-    .mobil {
+    .mobil{
         background-color: #8b8b8b;
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2.5rem;width: 2.5rem;
         border-radius: 50%;
         border: .1rem solid #585858;
     }
-
-    .mobile-nav-toggle {
+    .mobile-nav-toggle{
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 10px auto;
-        gap: 5px;
+        gap:5px;
         z-index: 1001;
     }
 
-    .mobile-nav-toggle span {
+    .mobile-nav-toggle span{
         display: block;
         background-color: black;
         height: 2px;
@@ -148,7 +144,7 @@ nav a {
     }
 
     /*Style de la navigation(Modale) */
-    nav {
+    nav{
         position: fixed;
         background-color: white;
         right: -1000px;
@@ -159,7 +155,6 @@ nav a {
         transition: right .5s ease;
         z-index: 1001;
     }
-
     nav ul {
         padding: 2rem 0;
         position: relative;
@@ -170,20 +165,19 @@ nav a {
         gap: 3px;
     }
 
-    nav ul li a {
+    nav ul li a{
         color: black;
         font-size: 1rem;
     }
 
-    nav a::before {
+   nav a::before {
         content: "";
         width: 0;
         position: absolute;
         height: 2px;
         transition: all .3s ease;
-        top: -4px;
-        left: -4px;
-
+        top: -4px;left: -4px;
+        
     }
 
     nav a::after {
@@ -192,38 +186,38 @@ nav a {
         position: absolute;
         height: 2px;
         transition: all .3s ease;
-        bottom: -4px;
-        right: -4px;
-
+        bottom: -4px;right: -4px;
+        
     }
 
     nav a:hover::before,
-    nav a:hover::after {
+    nav a:hover::after
+    {
         background-color: blue;
         width: 75%;
         transition: all .3s ease;
     }
 
-    nav ul li {
+    nav ul li{
         width: 100%;
         padding: .5rem;
         text-align: center;
     }
 
-    nav.nav-open {
+    nav.nav-open{
         right: 1em;
     }
 
-    .mobile-nav-toggle.is-active span:nth-child(1) {
+    .mobile-nav-toggle.is-active span:nth-child(1){
         transform: rotate(45deg) translate(4px, 6px);
     }
 
-    .mobile-nav-toggle.is-active span:nth-child(2) {
+    .mobile-nav-toggle.is-active span:nth-child(2){
         opacity: 0;
     }
 
 
-    .mobile-nav-toggle.is-active span:nth-child(3) {
+    .mobile-nav-toggle.is-active span:nth-child(3){
         transform: rotate(-45deg) translate(4px, -6px);
     }
 
