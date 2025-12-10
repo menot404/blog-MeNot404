@@ -1,12 +1,17 @@
-footer {
+footer{
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.footer {
+    width: 100%;
     color: #777;
     text-align: center;
-    margin: 80px auto 0;
+    width: 50%;
 }
 
 footer div {
     background-color: rgb(119, 119, 119, .2);
-    width: 50%;
     height: 1px;
     margin: 10px auto;
 }
