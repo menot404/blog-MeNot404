@@ -1,8 +1,8 @@
 .blog-media img,
-    .blog-media video{
-        width: 200px;
-        height: auto;
-        max-height: 200px;
-        border-radius: .2rem;
-        object-fit: cover;
-    }
+.blog-media video {
+    width: 200px;
+    height: auto;
+    max-height: 200px;
+    border-radius: .2rem;
+    object-fit: cover;
+}
