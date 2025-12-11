@@ -16,6 +16,8 @@
 .blog-btns {
     display: flex;
     gap: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .blogs .blog:hover h3 {
@@ -38,24 +40,52 @@
     transition: all ease .3s;
 }
 
-.btn,
-.blog-btns a {
-    padding: .5rem 1rem;
+.btn
+{
+    padding: 1rem;
     border-radius: .5rem;
-    font-size: 1rem;
     cursor: pointer;
-    color: white;
     border: none;
+
+}
+
+.btn i:hover{
+    color: white;
+}
+
+.btn i{
+    font-size: 20px;
+}
+
+form a{
+    text-decoration: none;
+    text-transform: none;
 }
 
 .blog-btns a {
-    background-color: rgb(0, 156, 0, .8);
-    border: .1rem solid green;
+    background-color: rgb(0, 0, 255, .4);
+    border: .1rem solid blue;
 }
 
 .btn {
-    background-color: rgb(255, 0, 0, .8);
-    border: .1rem solid rgb(167, 0, 0);
+    background-color: rgb(255, 0, 0, .4);
+    border: .1rem solid red;
+}
+
+.fa-trash{
+    color: red;
+}
+
+.fa-edit{ 
+    color: blue;
+}
+
+.blog-btns a:hover{
+    background-color: rgb(0, 0, 255, .5);
+}
+
+.btn:hover{
+    background-color: rgb(255, 0, 0, .5);
 }
 
 .filter {
