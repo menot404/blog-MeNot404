@@ -1,6 +1,7 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-  const mobilNavToggle = document.querySelector("body > header > div.mobil > button");
+  const mobilNavToggle = document.querySelector(
+    "body > header > div.mobil > button"
+  );
   const mainNav = document.querySelector("body > header > nav");
   const functionNavToggle = () => {
     mainNav.classList.toggle("nav-open");
@@ -9,6 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("click test");
   };
   mobilNavToggle.addEventListener("click", functionNavToggle);
+
+  // Fermer le menu en cliquant en dehors
+  function handlegitOutsideClick(e){
+    // Vérifier si le menu est ouvert// Vérifier si le menu est ouvert
+    if (mainNav.classList.contains("nav-open")) {
+      // Vérifier si le clic est en dehors du menu ET du bouton
+      if (!mainNav.contains(this.e.target) && !mobilNavToggle.contains(this.e.target)) {
+        mainNav.classList.remove("nav-open");
+        mobilNavToggle.classList.remove("is-active");
+      }
+    }
+  };
+  if (document) {
+    document.addEventListener("click", handlegitOutsideClick)
+  }
 
   const fileInput = document.getElementById("media");
   const filePreview = document.getElementById("filePreview");
@@ -19,48 +35,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (fileInput) {
     fileInput.addEventListener("change", function (e) {
-    const file = e.target.files[0];
+      const file = e.target.files[0];
 
-    if (file) {
-      // Afficher la prévisualisation
-      filePreview.classList.add("active");
+      if (file) {
+        // Afficher la prévisualisation
+        filePreview.classList.add("active");
 
-      // Afficher le nom du fichier
-      fileName.textContent = file.name;
+        // Afficher le nom du fichier
+        fileName.textContent = file.name;
 
-      // Afficher la taille du fichier
-      const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
-      fileSize.textContent = `Taille: ${sizeInMB} MB`;
+        // Afficher la taille du fichier
+        const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
+        fileSize.textContent = `Taille: ${sizeInMB} MB`;
 
-      // Si c'est une image, afficher la prévisualisation
-      if (file.type.startsWith("image/")) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-        };
-        reader.readAsDataURL(file);
-      } else if (file.type.startsWith("video/")) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          // add a class so CSS can constrain preview size
-          imagePreview.innerHTML = `<video class="preview-video" src="${e.target.result}" controls></video>`;
-        };
-        reader.readAsDataURL(file);
-      } else {
-        // Pour les autres fichiers, afficher une icône
-        imagePreview.innerHTML = '<div class="file-icon">📄</div>';
+        // Si c'est une image, afficher la prévisualisation
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+          };
+          reader.readAsDataURL(file);
+        } else if (file.type.startsWith("video/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            // add a class so CSS can constrain preview size
+            imagePreview.innerHTML = `<video class="preview-video" src="${e.target.result}" controls></video>`;
+          };
+          reader.readAsDataURL(file);
+        } else {
+          // Pour les autres fichiers, afficher une icône
+          imagePreview.innerHTML = '<div class="file-icon">📄</div>';
+        }
       }
-    }
-  });
+    });
 
-  removeFileBtn.addEventListener("click", function () {
-    fileInput.value = "";
-    filePreview.classList.remove("active");
-    imagePreview.innerHTML = "";
-    fileName.textContent = "";
-    fileSize.textContent = "";
-  });
-
+    removeFileBtn.addEventListener("click", function () {
+      fileInput.value = "";
+      filePreview.classList.remove("active");
+      imagePreview.innerHTML = "";
+      fileName.textContent = "";
+      fileSize.textContent = "";
+    });
   }
 
   // Fix: correct form id is 'blogform' in create.ej
@@ -73,32 +88,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // System of search
 
-  const search = document.getElementById('search');
+  const search = document.getElementById("search");
   const blogItems = document.querySelectorAll(".blog");
-  const noResultat = document.getElementById('no-results');
+  const noResultat = document.getElementById("no-results");
 
   function handlerSearch() {
     const value = search.value.toLowerCase();
     let visibleCount = 0;
 
-    blogItems.forEach(function(blogItem){
+    blogItems.forEach(function (blogItem) {
       const itemTitle = blogItem.querySelector("h3");
       const text = itemTitle ? itemTitle.textContent.toLowerCase() : "";
       const isMatch = text.includes(value);
       if (isMatch) {
         visibleCount++;
-        blogItem.style.display = '';
-      }else{
-        blogItem.style.display = 'none';
+        blogItem.style.display = "";
+      } else {
+        blogItem.style.display = "none";
       }
-    })
+    });
 
-    if (visibleCount===0 && value !=='') {
-      noResultat.style.display = 'block'
+    if (visibleCount === 0 && value !== "") {
+      noResultat.style.display = "block";
     } else {
-      noResultat.style.display = 'none'
+      noResultat.style.display = "none";
     }
   }
 
-  search.addEventListener('input', handlerSearch)
+  if(search){
+    search.addEventListener("input", handlerSearch);
+  }
 });
