@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Vérifier si le menu est ouvert// Vérifier si le menu est ouvert
     if (mainNav.classList.contains("nav-open")) {
       // Vérifier si le clic est en dehors du menu ET du bouton
-      if (!mainNav.contains(this.e.target) && !mobilNavToggle.contains(this.e.target)) {
+      if (!mainNav.contains(e.target) && !mobilNavToggle.contains(e.target)) {
         mainNav.classList.remove("nav-open");
         mobilNavToggle.classList.remove("is-active");
       }
