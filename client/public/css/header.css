@@ -222,3 +222,21 @@ nav a {
     }
 
 }
+
+@media screen and (max-width: 768px){
+    /*NAV MOBILE RESP */
+    header{
+        width: 100%;
+    }
+    nav{
+        width: 100%;
+        max-width: 120vh;
+        top: -1000px;right: 1rem;left: 1rem;
+        transition: top .5s ease;
+        z-index: 1001;
+    }
+
+    nav.nav-open{
+        top: 8rem;
+    }
+}
