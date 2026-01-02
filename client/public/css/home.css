@@ -118,7 +118,25 @@ form a{
     text-align: center;
 }
 
+.blog-info-btns{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
+.blog-info-btns .blog-info{
+    gap: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .9rem;
+    color: #666;
+}
+
+.blog-info-btns .blog-info i{
+    margin-right: 5px;
+    color: blue;
+}
 
 @media screen and (max-width: 967px) {
 
