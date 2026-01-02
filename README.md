@@ -1,4 +1,4 @@
-# NetNinja Blog Platform
+# MeNot404 Blog Platform
 
 ## Overview
 
