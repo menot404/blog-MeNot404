@@ -1,10 +1,14 @@
 const Blog = require("../models/blogModel");
+const moment = require("moment");
+
+// Config moment to format us dates
+moment.locale("en-us");
 
 // Get all blogs
 const getAllBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find().sort({ createdAt: -1 });
-    res.render("pages/home", { title: "All Blogs", blogs });
+    res.render("pages/home", { title: "All Blogs", blogs, moment });
   } catch (error) {
     res.status(500).send("Error retrieving blogs");
   }
