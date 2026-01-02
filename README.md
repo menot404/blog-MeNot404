@@ -2,7 +2,7 @@
 
 ## Overview
 
-NetNinja is a modern, full-stack blog platform built with Node.js, Express, and EJS. It features a clean separation between server-side logic and client-side assets, providing a robust foundation for scalable web applications. The project demonstrates best practices in code organization, modularity, and maintainability.
+MeNot404 is a modern, full-stack blog platform built with Node.js, Express, and EJS. It features a clean separation between server-side logic and client-side assets, providing a robust foundation for scalable web applications. The project demonstrates best practices in code organization, modularity, and maintainability.
 
 ## Features
 
@@ -47,8 +47,8 @@ scripts/              # Utility scripts
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd NetNinja
+   git clone https://github.com/menot404/blog-MeNot404.git
+   cd blog-MeNot404
    ```
 2. **Install dependencies:**
    ```bash
