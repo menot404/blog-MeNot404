@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   mobilNavToggle.addEventListener("click", functionNavToggle);
 
   // Fermer le menu en cliquant en dehors
-  function handlegitOutsideClick(e){
+  function handlegitOutsideClick(e) {
     // Vérifier si le menu est ouvert// Vérifier si le menu est ouvert
     if (mainNav.classList.contains("nav-open")) {
       // Vérifier si le clic est en dehors du menu ET du bouton
@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         mobilNavToggle.classList.remove("is-active");
       }
     }
-  };
+  }
   if (document) {
-    document.addEventListener("click", handlegitOutsideClick)
+    document.addEventListener("click", handlegitOutsideClick);
   }
 
   const fileInput = document.getElementById("media");
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if(search){
+  if (search) {
     search.addEventListener("input", handlerSearch);
   }
 });
