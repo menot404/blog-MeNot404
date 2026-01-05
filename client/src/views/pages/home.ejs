@@ -35,20 +35,20 @@
       </video>
       <% } %> <% } %>
     </div>
-    
+
     <div class="blog-info-btns">
       <div class="blog-info">
-      <p class="blog-date">
-        <i class="fa fa-calendar"></i> 
-        Published <%= moment(blog.createdAt).format('MM/DD/YYYY [at] hh:mm A') %>
-      </p>
+        <p class="blog-date">
+          <i class="fa fa-calendar"></i>
+          Published <%= moment(blog.createdAt).format('MM/DD/YYYY [at] hh:mm A')
+          %>
+        </p>
         <% if (blog.createdAt.getTime() !== blog.updatedAt.getTime()) { %>
         <p class="blog-updated-date">
-          <i class="fa fa-edit"></i> 
+          <i class="fa fa-edit"></i>
           Updated <%= moment(blog.updatedAt).fromNow() %>
         </p>
-       <% } %>
-        
+        <% } %>
       </div>
       <div class="blog-btns">
         <form method="POST" action="">
@@ -65,7 +65,9 @@
           action="/api/v1/blogs/<%= blog._id %>/delete"
           title="Delete"
         >
-          <button type="submit" class="btn"><i class="fas fa-trash"></i></button>
+          <button type="submit" class="btn">
+            <i class="fas fa-trash"></i>
+          </button>
         </form>
       </div>
     </div>
