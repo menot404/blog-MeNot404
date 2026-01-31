@@ -1,0 +1,40 @@
+<div class="content create-blog container">
+  <h2>Create a New Blog</h2>
+  <form
+    action="/api/v1/blogs"
+    method="POST"
+    enctype="multipart/form-data"
+    id="blogform"
+  >
+    <div class="form-group">
+      <label for="title">Blog Title:</label>
+      <input type="text" id="title" name="title" required />
+    </div>
+    <div class="form-group">
+      <label for="snippet">Blog Snippet:</label>
+      <input type="text" id="snippet" name="snippet" required />
+    </div>
+    <div class="form-group">
+      <label for="body">Blog Body:</label>
+      <textarea id="body" name="body" required></textarea>
+    </div>
+    <div class="form-group">
+      <label> Blog Media:</label>
+      <div class="file-input-wrapper">
+        <input type="file" name="media" id="media" accept="image/*, video/*" />
+        <label for="media" class="file-input-label"
+          >Choisir un fichier (image / vidéo)</label
+        >
+      </div>
+      <div class="file-preview" id="filePreview">
+        <div id="imagePreview"></div>
+        <div class="file-info">
+          <div class="file-name" id="fileName"></div>
+          <div class="file-size" id="fileSize"></div>
+        </div>
+        <button type="button" class="remove-file" id="removeFile">✕</button>
+      </div>
+    </div>
+    <button type="submit" class="submit-btn">Create Blog</button>
+  </form>
+</div>
